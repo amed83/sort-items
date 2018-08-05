@@ -15,5 +15,6 @@
     "concurrently": "^3.6.1",
     "express": "^4.16.3",
     "node-sass": "^4.9.2",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^7.1.0"
   }
+}

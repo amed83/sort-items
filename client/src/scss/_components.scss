@@ -45,18 +45,15 @@
         width: 5.5rem;
         height: 5.5rem;
         position:absolute;
-        left:-34%;
+        left:-37%;
         top:20%;
     }
     
     &__container{
-        margin-right: 2.2rem;
+        margin-right: 2.8rem;
         border-bottom: solid 1.5px var(--color-grey-light-4);
         transition: all .2s ease-out; 
-        &:hover{
-            transform:scale(1.1); 
-            background-color: var(--color-grey-light-3);
-        }    
+           
     }
 }
 
@@ -72,10 +69,9 @@
     }
     
     &__box{
-        margin-top: 8rem;
+        margin-top: 2rem;
         display: flex;
         flex-direction: column;
-
     }
     
     &__link{

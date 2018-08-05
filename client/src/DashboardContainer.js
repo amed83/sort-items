@@ -25,8 +25,11 @@ class DashboardContainer extends Component {
             price:false,
             sortedTime:[],
             time:false,
-            sortedPrice:[]
+            sortedPrice:[],
+            hover:false,
+            index:''
         }
+        
     componentDidMount(){
         axios.get('/prod')
          .then(data=> {
@@ -53,13 +56,16 @@ class DashboardContainer extends Component {
       this.setState({sortedTime:sortSpeed,time:true})
    }
    
-   handleSelection(event){
+   handleEnter=(item)=>{
+        this.setState({hover:true,index:item.cost+'index'})
    }
      
+   handleLeave=(index)=>{
+        this.setState({hover:false,index})
+   } 
+     
     render(){
-
         const {price,items,time,sortedPrice,sortedTime}=this.state
-        // const items = price ? this.state.sortedTime : items
         let itemsList;
         let buildList
         if(items.length>0){
@@ -69,7 +75,12 @@ class DashboardContainer extends Component {
                              let product= productsToShow[item.product]
                              return(
                                  <div key = {index}className="items-list__container">
-                                     <ul className="items-list__list" item={index} onClick={this.handleSelection.bind(this)}>
+                                     <ul
+                                          className="items-list__list" 
+                                          onMouseEnter={this.handleEnter.bind(null,item,index)}
+                                          onMouseLeave={this.handleLeave.bind(null,index)}
+                                          style= {{backgroundColor:this.state.hover && (item.cost+'index')  ===this.state.index? '#A9FAB9' : ''}}
+                                         >
                                          <li><b>{product} </b></li>
                                          <li><b>Price </b></li>
                                          <li><b><span className="items-list__figures">{item.cost} </span>
@@ -88,22 +99,19 @@ class DashboardContainer extends Component {
         const itemsOriginal2= items.length>0 && !time ? <Dashboard items={buildList(items)}/> : ""
         const itemsPrice= sortedPrice.length> 0 ? <Dashboard items={buildList(sortedPrice)}/> : ""
         const itemsTime= sortedTime.length> 0 ? <Dashboard items={buildList(sortedTime)}/> : ""
-    
         return(
             <div className='app-container__dashboard'>
-                <div className='btn__container'>
-                    <button className='btn__button'
-                     onClick={this.sortPrice.bind(this)}>Price</button>
-                 <button className='btn__button'
-                     onClick={this.sortSpeed.bind(this)}>Time</button>
-                </div>
-                
-                {itemsOriginal}
-                {itemsPrice }
-                
-                {itemsOriginal2}
-                {itemsTime}
-                
+                    <div className='btn__container'>
+                        <button className='btn__button'
+                         onClick={this.sortPrice.bind(this)}>Price</button>
+                     <button className='btn__button'
+                         onClick={this.sortSpeed.bind(this)}>Time</button>
+                    </div>
+                    
+                    {itemsOriginal}
+                    {itemsPrice }
+                    {itemsOriginal2}
+                    {itemsTime}    
             </div>
         )
     }
