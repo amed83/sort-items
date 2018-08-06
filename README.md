@@ -14,6 +14,5 @@ This allow you to compare how the cheapest solution is ranked in term of deliver
 * CSS using SASS
 
 ****
-
 ### Example
-![Example](client/src/img/example.gif? raw=true "Example")
+![example](https://user-images.githubusercontent.com/26250985/43723390-cec30070-9997-11e8-9b4d-d68bb2b49642.gif)
