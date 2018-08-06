@@ -13,5 +13,7 @@ This allow you to compare how the cheapest solution is ranked in term of deliver
 * Express.js on Node.js
 * CSS using SASS
 
+****
+
 ### Example
-![Example](/client/src/img/example.gif? raw=true "Example")
+![Example](client/src/img/example.gif? raw=true "Example")
