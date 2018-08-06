@@ -92,7 +92,7 @@ class DashboardContainer extends Component {
                                          <li><b>Price </b></li>
                                          <li><b><span className="items-list__figures">{item.cost} </span>
                                          <span className="items-list__currency">{item.currency}</span> </b></li>
-                                         <li><b>Lead time {item.lead_time} Days </b></li>
+                                         <li><b>Lead time <span className="items-list__days">{item.lead_time} Days </span></b></li>
                                          <img className="items-list__img" src={require(`./img/SVG/${brand}.svg`)} alt="brand img"/>    
                                      </ul> 
                                      
@@ -125,7 +125,7 @@ class DashboardContainer extends Component {
                     
                     <div className='items-list__box'>
                         <div className='btn__container'>
-                            <span>Sort items by Time of delivery</span>
+                            <span>Sort items by delivery time</span>
                                 <img className='items-list__icon'
                                  onClick={this.sortSpeed.bind(this)}
                                  src={require(`./img/SVG/calendar.svg`)} alt="wallet-icon"

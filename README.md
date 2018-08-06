@@ -3,7 +3,7 @@
 ## Description
 
 See all the different options and sort them either by price or by time of delivery.
-Select an item from one of the sorted list and the its equivalent in the other list will be also selected.
+Select an item from one of the sorted list and its equivalent in the other list will be also selected.
 
 This allow you to compare how the cheapest solution is ranked in term of delivery and the other way around.
 
@@ -12,3 +12,6 @@ This allow you to compare how the cheapest solution is ranked in term of deliver
 * React.js with CRA 
 * Express.js on Node.js
 * CSS using SASS
+
+### Example
+![Example](/client/src/img/example.gif? raw=true "Example")
