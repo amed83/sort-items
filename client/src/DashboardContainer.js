@@ -27,7 +27,8 @@ class DashboardContainer extends Component {
             time:false,
             sortedPrice:[],
             hover:false,
-            index:''
+            index:'',
+            selected:false
         }
         
     componentDidMount(){
@@ -56,13 +57,19 @@ class DashboardContainer extends Component {
       this.setState({sortedTime:sortSpeed,time:true})
    }
    
-   handleEnter=(item)=>{
-        this.setState({hover:true,index:item.cost+'index'})
+   handleSelection=(item,index,event)=>{
+       event.stopPropagation()
+       this.setState({
+           selected:true,
+           index:item.cost+'index'})
    }
-     
-   handleLeave=(index)=>{
-        this.setState({hover:false,index})
-   } 
+   
+   handleClickDashboard(e){
+       if(e.currentTarget.className==='app-container__dashboard'){
+           this.setState({selected:false})
+       }
+      
+   }
      
     render(){
         const {price,items,time,sortedPrice,sortedTime}=this.state
@@ -71,37 +78,40 @@ class DashboardContainer extends Component {
         if(items.length>0){
             buildList = (items)=>{
                    itemsList= items.map((item,index)=>{      
-                           let brand =  imgName(item.product)
-                             let product= productsToShow[item.product]
+                           const brand =  imgName(item.product)
+                             const product= productsToShow[item.product]
                              return(
-                                 <div key = {index}className="items-list__container">
+                                 <div key = {index} 
+                                      className="items-list__container"
+                                      style= {{backgroundColor:this.state.selected && (item.cost+'index')  ===this.state.index? '#80D8F6  ' : ''}}>
+                                       <img className="items-list__img-selected" src={require(`./img/SVG/check.svg`)} alt="dhl img"/>    
                                      <ul
                                           className="items-list__list" 
-                                          onMouseEnter={this.handleEnter.bind(null,item,index)}
-                                          onMouseLeave={this.handleLeave.bind(null,index)}
-                                          style= {{backgroundColor:this.state.hover && (item.cost+'index')  ===this.state.index? '#A9FAB9' : ''}}
-                                         >
+                                          onClick={this.handleSelection.bind(null,item,index)}
+                                     >
                                          <li><b>{product} </b></li>
                                          <li><b>Price </b></li>
                                          <li><b><span className="items-list__figures">{item.cost} </span>
                                             <span className="items-list__currency">{item.currency}</span> </b></li>
                                          <li><b>Lead time {item.lead_time} Days </b></li>
-                                         <img className="items-list__img" src={require(`./img/${brand}.svg`)} alt="dhl img"/>    
-                                     </ul>     
+                                         <img className="items-list__img" src={require(`./img/SVG/${brand}.svg`)} alt="brand img"/>    
+                                     </ul> 
+                                     
                                  </div>
                              )
                          })
                 return itemsList
            }
         }
-        const child = items.length>0 ? <Dashboard items={buildList(items)}/> : ""
         const itemsOriginal= items.length>0 && !price ? <Dashboard items={buildList(items)}/> : ""
         const itemsOriginal2= items.length>0 && !time ? <Dashboard items={buildList(items)}/> : ""
         const itemsPrice= sortedPrice.length> 0 ? <Dashboard items={buildList(sortedPrice)}/> : ""
         const itemsTime= sortedTime.length> 0 ? <Dashboard items={buildList(sortedTime)}/> : ""
         return(
-            <div className='app-container__dashboard'>    
-                        
+            <div className='app-container__dashboard'
+                onClick={this.handleClickDashboard.bind(this)} 
+                >    
+                       
                      <div className='items-list__box'>
                             <div className='btn__container'>
                                 <span>Sort items by price</span>
@@ -132,4 +142,5 @@ class DashboardContainer extends Component {
 
 export default DashboardContainer
     // <div className='btn__container'>
-
+    // onMouseEnter={this.handleEnter.bind(null,item,index)}
+    // onMouseLeave={this.handleLeave.bind(null,index)}

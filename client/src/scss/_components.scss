@@ -36,7 +36,6 @@
         list-style: none;
         font-size:1.2rem;
         padding:2.5rem;
-        position:relative;
         cursor:pointer;
     }
     
@@ -44,20 +43,27 @@
         width: 5.5rem;
         height: 5.5rem;
         position:absolute;
-        left:-37%;
+        left:0%;
         top:20%;
     }
     
+    &__img-selected{
+        position:absolute;
+        left:81%;
+        top:7%;
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+    
     &__container{
+        position:relative;
         margin-right: 2.8rem;
         border-bottom: solid 1.5px var(--color-grey-light-4);
-        transition: all .2s ease-out;        
     }
     
     &__box{
         position:relative;
         display: flex;
-        // border:solid grey 2px;
     }
     
     &__icon{
@@ -68,6 +74,9 @@
     
 }
 
+//////
+//NAVBAR
+
 .navbar {
     
     &__container{
@@ -77,7 +86,19 @@
         height: 100%;
         flex-wrap:wrap;
         width: 15%;
+        position:relative;
     }
+    
+    &__logo{
+        position: absolute;
+        top:-4%;
+        left:4%;
+        &__icon{
+            width: 10rem;
+            height: 10rem;
+            
+       }
+    }    
     
     &__box{
         margin-top: 2rem;
@@ -87,11 +108,11 @@
     
     &__link{
         color:#fff;
-        font-size:1.4rem;
+        font-size:1.1rem;
         text-decoration: none;
         font-weight: 600;
-        margin-bottom:2rem;
-        display: block;
+        margin-top:2rem;
+        display: flex;
         align-items: center;
     }
     
@@ -99,13 +120,22 @@
         display: flex;
         flex-direction: column;
         border-bottom: .7px solid var(--color-grey-light-4);
-        padding:1.8rem 3rem;
+        padding:1.4rem 2rem;
+    
+    }
+    
+    &__section:last-child{
+        border:none;
     }
     
     &__icon{
         width: 2rem;
         height: 2rem;
         margin-right: .8rem;
+    
+        &>span{
+            align-self:stretch;
+        }
     }    
 }
 

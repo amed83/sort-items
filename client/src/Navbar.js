@@ -3,6 +3,11 @@ import React from 'react'
 const Navbar = ()=>{
     return(
         <div className='navbar__container'>
+            <div  className='navbar__logo'>
+                <img className='navbar__logo__icon'
+                    src={require('./img/SVG/sendify-white-orange.svg')} 
+                    alt="sendify logo"/>
+            </div>
             <nav className='navbar__box'>
                 <div className='navbar__section'>    
                     <a href="#" className='navbar__link' >
@@ -15,7 +20,11 @@ const Navbar = ()=>{
                         src={require(`./img/SVG/circle-with-plus.svg`)} alt=""/>
                         <span>New Shipment</span>
                     </a>
-                    <a href="#" className='navbar__link'> Imports </a>
+                    <a href="#" className='navbar__link'> 
+                        <img className='navbar__icon'
+                        src={require(`./img/SVG/install.svg`)} alt=""/>
+                    <span>Imports</span>
+                   </a>
                 </div>
                 
                 <div className='navbar__section'>
@@ -26,7 +35,7 @@ const Navbar = ()=>{
                     </a>
                     <a href="#" className='navbar__link' >
                         <img className='navbar__icon'
-                        src={require(`./img/SVG/circle.svg`)} alt=""/>
+                        src={require(`./img/SVG/vinyl.svg`)} alt=""/>
                         <span>Booked</span>
                     </a>
                     <a href="#" className='navbar__link' >
@@ -78,11 +87,8 @@ const Navbar = ()=>{
                         src={require(`./img/SVG/login.svg`)} alt=""/>
                         <span>Logout</span>
                     </a>
-            
                 </div>
-            
             </nav>
-        
         </div>
     )
 }
