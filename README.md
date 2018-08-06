@@ -9,6 +9,6 @@ This allow you to compare how the cheapest solution is ranked in term of deliver
 
 ## Tech Stack
 
-*React.js with CRA 
-*Express.js on Node.js
-*CSS using SASS
+* React.js with CRA 
+* Express.js on Node.js
+* CSS using SASS
