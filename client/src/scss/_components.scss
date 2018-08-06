@@ -12,17 +12,16 @@
         height: 100%;
         width: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        
     }
 }
 
 .items-list{
-    
+        margin-top: 4rem;
         padding:1.8rem 3.5rem;
         display: flex;
         flex-wrap:wrap;
-        width: 95%;
+        height: 85%;
     &__currency{
         text-transform: uppercase;
         font-weight: 600;
@@ -52,9 +51,21 @@
     &__container{
         margin-right: 2.8rem;
         border-bottom: solid 1.5px var(--color-grey-light-4);
-        transition: all .2s ease-out; 
-           
+        transition: all .2s ease-out;        
     }
+    
+    &__box{
+        position:relative;
+        display: flex;
+        // border:solid grey 2px;
+    }
+    
+    &__icon{
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+    }
+    
 }
 
 .navbar {
@@ -101,12 +112,18 @@
 .btn{
     
     &__container{
-        width:25%;
         display: flex;
-        justify-content: space-between;
+        align-items: center;
         position:absolute;
-        top:1%;
-        left:auto;
+        top:2.5%;
+        left:3%;
+        
+        &>span{
+            font-size:1.8rem;
+            font-weight: 600;
+            color:var(--color-grey-dark-2);
+            margin-right: 2rem;
+        }
     }
     
     &__button{

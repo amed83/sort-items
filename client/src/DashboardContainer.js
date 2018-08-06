@@ -100,18 +100,30 @@ class DashboardContainer extends Component {
         const itemsPrice= sortedPrice.length> 0 ? <Dashboard items={buildList(sortedPrice)}/> : ""
         const itemsTime= sortedTime.length> 0 ? <Dashboard items={buildList(sortedTime)}/> : ""
         return(
-            <div className='app-container__dashboard'>
-                    <div className='btn__container'>
-                        <button className='btn__button'
-                         onClick={this.sortPrice.bind(this)}>Price</button>
-                     <button className='btn__button'
-                         onClick={this.sortSpeed.bind(this)}>Time</button>
-                    </div>
+            <div className='app-container__dashboard'>    
+                        
+                     <div className='items-list__box'>
+                            <div className='btn__container'>
+                                <span>Sort items by price</span>
+                                 
+                                 <img className='items-list__icon'
+                                 onClick={this.sortPrice.bind(this)}
+                                 src={require(`./img/SVG/wallet.svg`)} alt="wallet-icon"/>
+                            </div>
+                            {itemsOriginal}
+                            {itemsPrice }
+                     </div>
                     
-                    {itemsOriginal}
-                    {itemsPrice }
-                    {itemsOriginal2}
-                    {itemsTime}    
+                    <div className='items-list__box'>
+                        <div className='btn__container'>
+                            <span>Sort items by Time of delivery</span>
+                                <img className='items-list__icon'
+                                 onClick={this.sortSpeed.bind(this)}
+                                 src={require(`./img/SVG/calendar.svg`)} alt="wallet-icon"/>
+                        </div>
+                        {itemsOriginal2}
+                        {itemsTime} 
+                    </div>   
             </div>
         )
     }
@@ -119,5 +131,5 @@ class DashboardContainer extends Component {
 
 
 export default DashboardContainer
-
+    // <div className='btn__container'>
 
