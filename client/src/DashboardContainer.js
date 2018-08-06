@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Dashboard from './Dashboard'
-import imgName from './helpers'
+import imgName from './helpers'  //import function to change imgs' name
 
 const productsToShow={
     dhl_1:'DHL 1',
@@ -13,7 +13,7 @@ const productsToShow={
     ups_1:'UPS 1',
     ups_2:'UPS 2',
     dsv_1:'DSV 1'
-}
+}  
 
 
 class DashboardContainer extends Component {
@@ -64,11 +64,10 @@ class DashboardContainer extends Component {
            index:item.cost+'index'})
    }
    
-   handleClickDashboard(e){
+   handleClickDashboard(e){  //if the user click in the middle of the dashboard put selection off
        if(e.currentTarget.className==='app-container__dashboard'){
            this.setState({selected:false})
-       }
-      
+       } 
    }
      
     render(){
@@ -82,17 +81,17 @@ class DashboardContainer extends Component {
                              const product= productsToShow[item.product]
                              return(
                                  <div key = {index} 
-                                      className="items-list__container"
-                                      style= {{backgroundColor:this.state.selected && (item.cost+'index')  ===this.state.index? '#80D8F6  ' : ''}}>
-                                       <img className="items-list__img-selected" src={require(`./img/SVG/check.svg`)} alt="dhl img"/>    
+                                     className="items-list__container"
+                                     style= {{backgroundColor:this.state.selected && (item.cost+'index')===this.state.index? '#80D8F6' :''}}>
+                                     <img className="items-list__img-selected" src={require(`./img/SVG/check.svg`)} alt="dhl img"/>    
                                      <ul
-                                          className="items-list__list" 
-                                          onClick={this.handleSelection.bind(null,item,index)}
-                                     >
+                                         className="items-list__list" 
+                                         onClick={this.handleSelection.bind(null,item,index)}
+                                         >
                                          <li><b>{product} </b></li>
                                          <li><b>Price </b></li>
                                          <li><b><span className="items-list__figures">{item.cost} </span>
-                                            <span className="items-list__currency">{item.currency}</span> </b></li>
+                                         <span className="items-list__currency">{item.currency}</span> </b></li>
                                          <li><b>Lead time {item.lead_time} Days </b></li>
                                          <img className="items-list__img" src={require(`./img/SVG/${brand}.svg`)} alt="brand img"/>    
                                      </ul> 
@@ -110,16 +109,16 @@ class DashboardContainer extends Component {
         return(
             <div className='app-container__dashboard'
                 onClick={this.handleClickDashboard.bind(this)} 
-                >    
+            >    
                        
-                     <div className='items-list__box'>
-                            <div className='btn__container'>
-                                <span>Sort items by price</span>
-                                 
-                                 <img className='items-list__icon'
-                                 onClick={this.sortPrice.bind(this)}
-                                 src={require(`./img/SVG/wallet.svg`)} alt="wallet-icon"/>
-                            </div>
+                    <div className='items-list__box'>
+                        <div className='btn__container'>
+                            <span>Sort items by price</span>
+                                <img className='items-list__icon'
+                                   onClick={this.sortPrice.bind(this)}
+                                   src={require(`./img/SVG/wallet.svg`)} alt="wallet-icon"
+                                />
+                        </div>
                             {itemsOriginal}
                             {itemsPrice }
                      </div>
@@ -129,7 +128,8 @@ class DashboardContainer extends Component {
                             <span>Sort items by Time of delivery</span>
                                 <img className='items-list__icon'
                                  onClick={this.sortSpeed.bind(this)}
-                                 src={require(`./img/SVG/calendar.svg`)} alt="wallet-icon"/>
+                                 src={require(`./img/SVG/calendar.svg`)} alt="wallet-icon"
+                                />
                         </div>
                         {itemsOriginal2}
                         {itemsTime} 
@@ -139,8 +139,5 @@ class DashboardContainer extends Component {
     }
 }
 
-
 export default DashboardContainer
-    // <div className='btn__container'>
-    // onMouseEnter={this.handleEnter.bind(null,item,index)}
-    // onMouseLeave={this.handleLeave.bind(null,index)}
+

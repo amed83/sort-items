@@ -1,173 +1,171 @@
-.app-container{
-    
-    &__main{
-        width:100%;
+.app-container {
+    &__main {
+        width: 100%;
         height: 100vh;
-        position:relative;
+        position: relative;
         display: flex;
-         
     }
-    
-    &__dashboard{
+
+    &__dashboard {
         height: 100%;
         width: 100%;
         display: flex;
-        
     }
 }
 
-.items-list{
-        margin-top: 4rem;
-        padding:1.8rem 3.5rem;
-        display: flex;
-        flex-wrap:wrap;
-        height: 85%;
-    &__currency{
+/////////
+//ITEMS-LIST
+.items-list {
+    margin-top: 4rem;
+    padding: 1.8rem 3.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    height: 85%;
+
+    &__currency {
         text-transform: uppercase;
         font-weight: 600;
     }
-    
-    &__figures{
+
+    &__figures {
         font-size: 1.9rem;
-    }            
-    
-    &__list{
+    }
+
+    &__list {
         margin-left: 4rem;
         list-style: none;
-        font-size:1.2rem;
-        padding:2.5rem;
-        cursor:pointer;
+        font-size: 1.2rem;
+        padding: 2.5rem;
+        cursor: pointer;
     }
-    
-    &__img{
+
+    &__img {
         width: 5.5rem;
         height: 5.5rem;
-        position:absolute;
-        left:0%;
-        top:20%;
+        position: absolute;
+        left: 0;
+        top: 20%;
     }
-    
-    &__img-selected{
-        position:absolute;
-        left:81%;
-        top:7%;
+
+    &__img-selected {
+        position: absolute;
+        left: 81%;
+        top: 7%;
         width: 2.8rem;
         height: 2.8rem;
     }
-    
-    &__container{
-        position:relative;
+
+    &__container {
+        position: relative;
         margin-right: 2.8rem;
         border-bottom: solid 1.5px var(--color-grey-light-4);
     }
-    
-    &__box{
-        position:relative;
+
+    &__box {
+        position: relative;
         display: flex;
     }
-    
-    &__icon{
+
+    &__icon {
         width: 3rem;
         height: 3rem;
         cursor: pointer;
     }
-    
 }
-
 //////
 //NAVBAR
 
 .navbar {
-    
-    &__container{
+    &__container {
         display: flex;
         flex-direction: column;
         background-color: var(--color-grey-dark-1);
         height: 100%;
-        flex-wrap:wrap;
+        flex-wrap: wrap;
         width: 15%;
-        position:relative;
+        position: relative;
     }
-    
-    &__logo{
+
+    &__logo {
         position: absolute;
-        top:-4%;
-        left:4%;
-        &__icon{
+        top: -2%;
+        left: 12%;
+        width: 100%;
+
+        &__icon {
             width: 10rem;
             height: 10rem;
-            
-       }
-    }    
-    
-    &__box{
-        margin-top: 2rem;
+        }
+    }
+
+    &__box {
+        margin-top: 5rem;
         display: flex;
         flex-direction: column;
     }
-    
-    &__link{
-        color:#fff;
-        font-size:1.1rem;
+
+    &__link {
+        color: #fff;
+        font-size: 1.1rem;
         text-decoration: none;
         font-weight: 600;
-        margin-top:2rem;
+        margin-top: 2rem;
         display: flex;
         align-items: center;
     }
-    
-    &__section{
+
+    &__sections {
         display: flex;
         flex-direction: column;
-        border-bottom: .7px solid var(--color-grey-light-4);
-        padding:1.4rem 2rem;
-    
+        border-bottom: 0.7px solid var(--color-grey-light-4);
+        padding: 0 2rem 1rem;
     }
-    
-    &__section:last-child{
-        border:none;
+
+    &__section:last-child {
+        border: none;
     }
-    
-    &__icon{
+
+    &__icon {
         width: 2rem;
         height: 2rem;
-        margin-right: .8rem;
-    
-        &>span{
-            align-self:stretch;
+        margin-right: 0.8rem;
+
+        & > span {
+            align-self: stretch;
         }
-    }    
+    }
 }
 
-.btn{
-    
-    &__container{
+///////
+//BUTTONS
+.btn {
+    &__container {
         display: flex;
         align-items: center;
-        position:absolute;
-        top:2.5%;
-        left:3%;
-        
-        &>span{
-            font-size:1.8rem;
+        position: absolute;
+        top: 2.5%;
+        left: 3%;
+
+        & > span {
+            font-size: 1.8rem;
             font-weight: 600;
-            color:var(--color-grey-dark-2);
+            color: var(--color-grey-dark-2);
             margin-right: 2rem;
         }
     }
-    
-    &__button{
+
+    &__button {
         height: 4rem;
-        border:none;
-        width:14rem;
+        border: none;
+        width: 14rem;
         background-color: #29ADF3;
-        border-radius:20px;
-        cursor:pointer;
-        color:#fff;
+        border-radius: 20px;
+        cursor: pointer;
+        color: #fff;
         text-transform: uppercase;
         font-weight: bold;
         font-family: inherit;
-        font-size:2.1rem;
+        font-size: 2.1rem;
         outline: none;
     }
 }
