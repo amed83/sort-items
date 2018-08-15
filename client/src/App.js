@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
-import DashboardContainer from './DashboardContainer'
+import Navbar from './Components/Navbar';
+import DashboardContainer from './Containers/DashboardContainer'
 
 class App extends Component {
   render() {
@@ -8,7 +8,6 @@ class App extends Component {
       <div className='app-container__main' >
             <Navbar />
             <DashboardContainer />
-
       </div>
     );
   }
